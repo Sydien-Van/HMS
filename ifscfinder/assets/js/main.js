@@ -239,6 +239,69 @@ $(function() {
       }
     });
     
+
+    // Animation of services in the home page
+
+    const content = [
+        "Hotels",
+        "Restaurants",
+        "Banks",
+    ]
+
+    let part = 0;
+    let part_index = 0;
+
+    let interval;
+    let _element = document.querySelector("#text");
+    const cursor = document.querySelector("#cursor");
+
+
+    // Typing effect
+
+    function Typing() {
+        let text = content[part].substring(0, part_index + 1);
+        _element.innerHTML = text;
+        part_index++;
+
+        // if full sentence has been display then start to delete the sentence after some time
+        if (text === content[part]) {
+            cursor.style.display = "none";
+            clearInterval(interval);
+            setTimeout(function () {
+                interval = setInterval(Delete, 50)
+            }, 2000);
+        }
+    }
+
+    // Delete Effect
+
+    function Delete() {
+        let text = content[part].substring(0, part_index - 1);
+        _element.innerHTML = text;
+        part_index--;
+
+
+        if (text === "") {
+            clearInterval(interval);
+
+            if (part == (content.length - 1)) {
+                part = 0;
+            }
+            else{
+                part++;
+            }
+            part_index = 0;
+
+            setTimeout(function () {
+                cursor.style.display = 'inline-block';
+                interval = setInterval(Typing, 100);
+           }, 2000)
+
+        }
+
+    }
+
+    interval = setInterval(Typing, 100);
     
     
     

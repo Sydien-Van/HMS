@@ -100,7 +100,7 @@ include('admin/includes/dbconnection.php');
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="header-hero-content">
-                            <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>Search</b> <span>Bank</span> Detail <b>by one click.</b></h1>
+                            <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>Search</b> <span id="text"> <span id="cursor"></span> </span> Detail <b>by one click.</b></h1>
                             <div class="header-singup wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
                                 <form action="search.php" method="post" name="search">
                                 <input type="text" placeholder="Enter Bank Name/Zipcode/Branch" name="searchifsccode">
